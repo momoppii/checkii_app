@@ -1,0 +1,83 @@
+.fukidashi {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0ffe0;
+  border-radius: 15px;
+}
+
+.fukidashi:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top: 15px solid #e0ffe0;
+}
+
+.fukidashi p {
+  margin: 0;
+  padding: 0;
+}
+
+.fukidashi-yellow{
+    position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #ffffcc;
+  border-radius: 15px;
+}
+
+.fukidashi-yellow:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top: 15px solid #ffffcc;
+}
+
+.fukidashi-yellow p {
+  margin: 0;
+  padding: 0;
+}
+
+.fukidashi-red{
+    position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #ffe0ff;
+  border-radius: 15px;
+}
+
+.fukidashi-red:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top: 15px solid #ffe0ff;
+}
+
+.fukidashi-red p {
+  margin: 0;
+  padding: 0;
+}

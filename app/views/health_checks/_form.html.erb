@@ -1,0 +1,52 @@
+<%= form_with(model: @health_check, local:true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <br />    
+  <div class="form-group">
+    <%= f.label :templature, '【 体温 】' %>
+    <%= f.number_field :templature, step: "0.1", value: 36.5, class: 'form-control' %>
+  </div>
+  <br />
+  <h6>以下、当てはまる症状があればチェックをいれてください。</h6>
+  <br />
+      
+      <div class="form-group">
+        <%= f.label :respiratory_symptom, '【 呼吸器症状 】' %>
+        <% ["せき", "息切れ", "胸部の痛み圧迫感"].each do |respiratory_symptom| %>
+          <%= f.check_box :respiratory_symptom, { multiple: true, include_hidden: false }, respiratory_symptom %>
+          <%= respiratory_symptom %>
+        <% end %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :throat_nasus_eyes_symptom, '【のど、鼻、目の症状】' %>
+        <% ["のどの痛み", "鼻づまり", "結膜炎", "味やにおいを感じにくい"].each do |throat_nasus_eyes_symptom| %>
+          <%= f.check_box :throat_nasus_eyes_symptom, { multiple: true, include_hidden: false }, throat_nasus_eyes_symptom %>
+          <%= throat_nasus_eyes_symptom %>
+        <% end %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :digestive_symptom, '【 消化器症状 】' %>
+        <% ["吐き気や嘔吐", "腹痛", "下痢"].each do |digestive_symptom| %>
+          <%= f.check_box :digestive_symptom, { multiple: true, include_hidden: false }, digestive_symptom %>
+          <%= digestive_symptom %>
+        <% end %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :other, '【 その他 】' %>
+        <% ["倦怠感", "筋肉や関節の痛み", "頭痛", "発疹", "めまい", "悪寒", "食欲不振", "睡眠障害", "精神症状"].each do |other| %>
+          <%= f.check_box :other, { multiple: true, include_hidden: false }, other %>
+        <%= other %>
+        <% end %>
+      </div>
+      <br />
+      <div class="form-group">
+        <%= f.label :memo, '上記以外に気になる症状があったら記入してください。' %>
+        <%= f.text_area :memo, class: 'form-control' %>
+      </div>
+          
+      <%= f.submit '完了', class: 'btn btn-success btn-block' %>
+    <% end %>
+  </div>
+</div>

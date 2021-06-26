@@ -1,0 +1,29 @@
+<header class="mb-4">
+  <nav class="navbar navbar-expand-sm navbar-light" style="background-color:#ffd1ff;">
+    <a class="navbar-brand" href="/"><img src="assets/checkii_box.jpg"></a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">memu</a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item"><%= link_to 'ヘルスチェック 登録', new_health_check_path %></li>
+              <li class="dropdown-item"><%= link_to 'ヘルスチェック 一覧・編集', health_checks_path(current_user) %></li>
+              <li class="dropdown-item"><%= link_to '行動記録 登録', new_activity_log_path %></li>
+              <li class="dropdown-item"><%= link_to '行動記録 一覧・編集', activity_logs_path(current_user) %></li>
+              <li class="dropdown-item"><%= link_to 'ユーザー情報 確認・編集', user_path(current_user) %></li>
+              <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item"><%= link_to '新規登録', signup_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

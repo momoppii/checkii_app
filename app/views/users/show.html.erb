@@ -1,0 +1,17 @@
+<h1>ユーザー情報</h1>
+<br />
+<h5>[お名前]<br /><br /><%= @user.name %></h5>
+<br />
+<br />
+<h5>[メールアドレス]<br /><br /><%= @user.email %></h5>
+<br />
+<br />
+<h5>[所属団体]<br /><br /><%= @user.belong %></h5>
+<br />
+<br />
+<h5>[基礎疾患などの健康状態]<br /><br /><%= @user.underlying_diseases %></h5>
+<br />
+<br />
+<div class="text-center">
+    変更は<%= link_to'こちら', edit_user_path(id: @user) %>から
+</div>

@@ -1,0 +1,40 @@
+<% if logged_in? %>
+  <br />
+  <br />
+  <br />
+<div class="text-center">
+  <div class='fukidashi'>
+    <link rel="stylesheet" href="fukidashi.css">
+    こんにちは、<%= current_user.name %> さん。<br />
+    今日も感染対策をしっかりしてお過ごしください!<br />
+    「マスク」「手洗い」「消毒」「ソーシャルディスタンス」<br />を心掛けて行動しましょう!
+  </div>
+</div>
+
+<br />
+<img src="assets/simple.png"><br />
+
+<br />
+<br />
+<br />
+<div class="text-center">  
+  <%= link_to '< ヘルスチェック 登録 >', new_health_check_url %>
+  <%= link_to '< ヘルスチェック　一覧・編集 >', health_checks_url %><br />
+  <%= link_to '< 行動記録 登録 >', new_activity_log_url %>
+  <%= link_to '< 行動記録　一覧・編集 >', activity_logs_url %><br />
+  <%= link_to '< ユーザー情報 確認・編集 >', user_path(current_user) %>
+  <%= link_to '<  ログアウト >', logout_path, method: :delete %>
+</div>
+
+<% else %>
+  <br />
+  <div class="image-center">
+    <img src="assets/checkii_box.png">
+  </div>
+  <br />
+  <br />
+  <div class="text-center">
+    <h5>ログインは　<%= link_to 'こちら', login_path %></h5>
+    <h5>新規登録は　<%= link_to 'こちら', signup_path %></h5>
+  </div>
+<% end %>
