@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: checkii_production
   username: checkii
   password: <%= ENV['CHECKII_DATABASE_PASSWORD'] %>
