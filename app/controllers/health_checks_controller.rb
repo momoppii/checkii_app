@@ -9,7 +9,7 @@ class HealthChecksController < ApplicationController
     if @health_check.save
       redirect_to complete_health_check_url(id: @health_check)
     else
-      flash.now[:danger] = '登録に失敗しました'
+      flash.now[:danger] = '登録できませんでした'
       render 'new'
     end
   end
@@ -29,7 +29,7 @@ class HealthChecksController < ApplicationController
       flash[:success] = '更新されました'
       redirect_to health_checks_url
     else
-      flash.now[:danger] = '更新に失敗しました'
+      flash.now[:danger] = '更新できませんでした'
       render :edit
     end
   end

@@ -1,20 +1,24 @@
 <ul>
   <% @health_check.each do |health_check| %>
     <div class="card">
-      <div class="green" @health_check.templature < 37.0>
-      <div class="yellow" 37.0 <= @health_check.templature < 37.5>
-      <div class="red" 37.5 <= @health_check.templature>
+    <% if health_check.templature < 37.0 %>
+      <div class="green">
+    <% elsif health_check.templature >= 37.0 && health_check.templature < 37.5 %>
+      <div class="yellow">
+    <% elsif health_check.templature >= 37.5 %>
+      <div class="red">
+    <% end %>
       <div class="card-header">
         <%= health_check.created_at.to_s(:datetime_jp) %>
       </div>
       <div class="card-body">
         <link rel="stylesheet" href="health_check.css">
-        <a href="#"><%= health_check.templature %></a><br />
-        <a href="#"><%= health_check.respiratory_symptom %></a><br />
-        <a href="#"><%= health_check.throat_nasus_eyes_symptom %></a><br />
-        <a href="#"><%= health_check.digestive_symptom %></a><br />
-        <a href="#"><%= health_check.other %></a><br />
-        <a href="#"><%= health_check.memo %></a><br />
+        <a href="#">体温：<%= health_check.templature %></a><br />
+        <a href="#">呼吸器症状：<%= health_check.respiratory_symptom %></a><br />
+        <a href="#">喉、鼻、目の症状：<%= health_check.throat_nasus_eyes_symptom %></a><br />
+        <a href="#">消化器症状：<%= health_check.digestive_symptom %></a><br />
+        <a href="#">その他：<%= health_check.other %></a><br />
+        <a href="#">メモ：<%= health_check.memo %></a><br />
         <a href="#"><%= link_to '編集', edit_health_check_path(@health_check.ids) %></a>
       </div>
     </div>

@@ -9,7 +9,7 @@ class ActivityLogsController < ApplicationController
     if @activity_log.save
       redirect_to complete_activity_log_url(id: @activity_log)
     else
-      flash.now[:danger] = '登録に失敗しました'
+      flash.now[:danger] = '登録できませんでした'
       render 'new'
     end
   end
@@ -32,7 +32,7 @@ class ActivityLogsController < ApplicationController
       flash[:success] = '更新されました'
       redirect_to activity_logs_url
     else
-      flash.now[:danger] = '更新に失敗しました'
+      flash.now[:danger] = '更新できませんでした'
       render :edit
     end
   end

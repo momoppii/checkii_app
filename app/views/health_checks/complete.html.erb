@@ -1,11 +1,11 @@
-<% if @templature < 37.0 %>
+<% if @templature < 37.0 && @health_check.respiratory_symptom.nil? && @health_check.throat_nasus_eyes_symptom.nil? && @health_check.digestive_symptom.nil? && @health_check.other.nil? %>
   <div class="fukidashi">
     <link rel="stylesheet" href="fukidashi.css">
     記録が完了しました!<br>今日も一日、マスク、手洗い、消毒などの<br>感染対策をしっかりして過ごしましょう!
   </div>
   <img src="assets/mask.png">
   <%= link_to '戻る', root_path %>
-<%= elsif @health_check.respiratory_symptom.nil? && @health_check.throat_nasus_eyes_symptom.nil? && @health_check.digestive_symptom.nil? && @health_check.other.nil? == false %>
+<% elsif @templature < 37.0 && @health_check.respiratory_symptom.present? || @health_check.throat_nasus_eyes_symptom.present? || @health_check.digestive_symptom.present? || @health_check.other.present? %>
   <div class="fukidashi.yellow">
     <link rel="stylesheet" href="fukidashi.css">
     記録が完了しました!<br>少し心配な症状が見られますね…<br>体調の変化に注意し、改善が見られない場合、<br>かかりつけの病院やお住まいの地域の<br>指定の機関にお電話にてご相談を!

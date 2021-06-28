@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get :complete
     end
   end
-  resources :activity_logs, only: [:new, :index, :show, :create, :edit, :update] do
+  resources :activity_logs, only: [:new, :index, :create, :edit, :update] do
     member do
       get :complete
     end
