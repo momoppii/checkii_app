@@ -35,7 +35,7 @@ class HealthChecksController < ApplicationController
   end
   
   def index
-    @health_check = HealthCheck.order(id: :desc).page(params[:page]).per(20)
+    @health_check = HealthCheck.order(id: :desc).page(params[:page]).per(10)
   end
 
   private

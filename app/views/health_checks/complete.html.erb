@@ -1,29 +1,53 @@
 <% if @templature < 37.0 && @health_check.respiratory_symptom.nil? && @health_check.throat_nasus_eyes_symptom.nil? && @health_check.digestive_symptom.nil? && @health_check.other.nil? %>
-  <div class="fukidashi">
-    <link rel="stylesheet" href="fukidashi.css">
-    記録が完了しました!<br>今日も一日、マスク、手洗い、消毒などの<br>感染対策をしっかりして過ごしましょう!
+  <div class="text-center">
+    <div class="fukidashi">
+      <link rel="stylesheet" href="fukidashi.css">
+        記録が完了しました!<br>今日も一日、マスク、手洗い、消毒などの<br>感染対策をしっかりして過ごしましょう!
+    </div>
   </div>
-  <img src="assets/mask.png">
-  <%= link_to '戻る', root_path %>
+  <br />
+    <%= image_tag "mask.png" %>
+  <br />
+  <div class="text-center">
+    <%= link_to '戻る', root_path %>
+  </div>
 <% elsif @templature < 37.0 && @health_check.respiratory_symptom.present? || @health_check.throat_nasus_eyes_symptom.present? || @health_check.digestive_symptom.present? || @health_check.other.present? %>
-  <div class="fukidashi.yellow">
-    <link rel="stylesheet" href="fukidashi.css">
-    記録が完了しました!<br>少し心配な症状が見られますね…<br>体調の変化に注意し、改善が見られない場合、<br>かかりつけの病院やお住まいの地域の<br>指定の機関にお電話にてご相談を!
+  <div class="text-center">
+    <div class="fukidashi.yellow">
+      <link rel="stylesheet" href="fukidashi.css">
+        記録が完了しました!<br>少し心配な症状が見られますね…<br>体調の変化に注意し、改善が見られない場合、<br>かかりつけの病院やお住まいの地域の<br>指定の機関にお電話にてご相談を!
+    </div>
   </div>
-  <img src="assets/relax.png">
-  <%= link_to '戻る', root_path %>
+  <br />
+    <%= image_tag "relax.png" %>
+  <br />
+  <div class="text-center">
+    <%= link_to '戻る', root_path %>
+  </div>
 <% elsif 37.0 <= @templature && @templature < 37.5 %>
-  <div class="fukidashi-yellow">
-    <link rel="stylesheet" href="fukidashi.css">
-    記録が完了しました。<br>微熱があるようですね…<br>こまめに体温を測り、変動に注意してお過ごしください!
+  <div class="text-center">
+    <div class="fukidashi-yellow">
+      <link rel="stylesheet" href="fukidashi.css">
+        記録が完了しました。<br>微熱があるようですね…<br>こまめに体温を測り、変動に注意してお過ごしください!
+    </div>
   </div>
-  <img src="assets/relax.png">
-  <%= link_to '戻る', root_path %>
+  <br />
+    <%= image_tag "relax.png" %>
+  <br />
+  <div class="text-center">
+    <%= link_to '戻る', root_path %>
+  </div>
 <% elsif 37.5 <= @templature %>
-  <div class="fukidashi-red">
-    <link rel="stylesheet" href="fukidashi.css">
-    記録が完了しました。<br>発熱しているようですね。<br>直接医療機関に足を運ぶのではなく、<br>まずはかかりつけの病院やお住まいの地域の指定の機関にお電話にてご相談を!
+  <div class="text-center">
+    <div class="fukidashi-red">
+      <link rel="stylesheet" href="fukidashi.css">
+        記録が完了しました。<br>発熱しているようですね。<br>直接医療機関に足を運ぶのではなく、<br>まずはかかりつけの病院やお住まいの地域の指定の機関にお電話にてご相談を!
+    </div>
   </div>
-  <img src="assets/phone.png">
-  <%= link_to '戻る', root_path %>
+  <br />
+    <%= image_tag "phone.png" %>
+  <br />
+  <div class="text-center">
+    <%= link_to '戻る', root_path %>
+  </div>
 <% end %>

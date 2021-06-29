@@ -12,13 +12,16 @@
 }
 
 .fukidashi:before {
-  content: "";
+  content: '';
   position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-top: 15px solid #e0ffe0;
+  display: block;
+  z-index: 1;
+  border-style: solid;
+  border-color: #e0ffe0 transparent;
+  border-width: 20px 20px 0 0;
+  bottom: -20px;
+  left: 15%;
+  margin-left: -10px;
 }
 
 .fukidashi p {
@@ -40,13 +43,16 @@
 }
 
 .fukidashi-yellow:before {
-  content: "";
+  content: '';
   position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-top: 15px solid #ffffcc;
+  display: block;
+  z-index: 1;
+  border-style: solid;
+  border-color: #ffffcc transparent;
+  border-width: 20px 20px 0 0;
+  bottom: -20px;
+  left: 15%;
+  margin-left: -10px;
 }
 
 .fukidashi-yellow p {
@@ -68,13 +74,16 @@
 }
 
 .fukidashi-red:before {
-  content: "";
+  content: '';
   position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-top: 15px solid #ffe0ff;
+  display: block;
+  z-index: 1;
+  border-style: solid;
+  border-color: #ffe0ff transparent;
+  border-width: 20px 20px 0 0;
+  bottom: -20px;
+  left: 15%;
+  margin-left: -10px;
 }
 
 .fukidashi-red p {
