@@ -19,7 +19,7 @@ class ActivityLogsController < ApplicationController
   end
 
   def index
-    @activity_log = ActivityLog.order(id: :desc).page(params[:page]).per(20)
+    @activity_log = current_user.activity_logs.all.order(id: :desc).page(params[:page]).per(20)
   end
 
   def edit
