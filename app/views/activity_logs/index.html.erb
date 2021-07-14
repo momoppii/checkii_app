@@ -5,11 +5,11 @@
         <%= activity_log.created_at.to_s(:datetime_jp) %>
       </div>
       <div class="card-body">
-        <a href="#"><%= activity_log.log %></a><br />
+        <a href="#"><%= activity_log.log.gsub(/\r\n|\r|\n/, "<br>") %></a><br />
         <a href="#"><%= link_to '編集', edit_activity_log_path(@activity_log.ids) %></a>
       </div>
     </div>
   <% end %>
-  <%= paginate @activity_log %>
+  <%= paginate @activity_logs %>
 </ul>
         
