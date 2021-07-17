@@ -1,5 +1,5 @@
 <ul>
-  <% @health_check.each do |health_check| %>
+  <% @health_checks.each do |health_check| %>
     <div class="card">
     <% if health_check.templature < 37.0 %>
       <div class="green">
@@ -13,15 +13,15 @@
       </div>
       <div class="card-body">
         <link rel="stylesheet" href="health_check.css">
-        <p href="#">体温：<%= health_check.templature %></p><br />
-        <p href="#">呼吸器症状：<%= health_check.respiratory_symptom %></p><br />
-        <p href="#">喉、鼻、目の症状：<%= health_check.throat_nasus_eyes_symptom %></p><br />
-        <p href="#">消化器症状：<%= health_check.digestive_symptom %></p><br />
-        <p href="#">その他：<%= health_check.other %></p><br />
-        <p href="#">メモ：<%= health_check.memo.gsub(/\r\n|\r|\n/, "<br>") %></p><br />
-        <a href="#"><%= link_to '編集', edit_health_check_path(@health_check.ids) %></a>
+        <p>体温：<%= health_check.templature %></p><br />
+        <p>呼吸器症状：<%= health_check.respiratory_symptom %></p><br />
+        <p>喉、鼻、目の症状：<%= health_check.throat_nasus_eyes_symptom %></p><br />
+        <p>消化器症状：<%= health_check.digestive_symptom %></p><br />
+        <p>その他：<%= health_check.other %></p><br />
+        <p>メモ：<%== health_check.memo.split(/\r\n|\r|\n/).map{|s|h(s)}.join('<br>') %></p><br />
+        <a href="#"><%= link_to '編集', edit_health_check_path(@health_checks.ids) %></a>
       </div>
     </div>
   <% end %>
-  <%= paginate @health_check %>
+  <%= paginate @health_checks %>
 </ul>

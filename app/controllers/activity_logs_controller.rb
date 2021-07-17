@@ -1,4 +1,8 @@
 class ActivityLogsController < ApplicationController
+  def index
+    @activity_logs = current_user.activity_logs.all.order(id: :desc).page(params[:page]).per(20)
+  end
+  
   def new
     @activity_log = ActivityLog.new
   end
@@ -16,10 +20,6 @@ class ActivityLogsController < ApplicationController
   
   def complete
     @activity_log = ActivityLog.find(params[:id])
-  end
-
-  def index
-    @activity_log = current_user.activity_logs.all.order(id: :desc).page(params[:page]).per(20)
   end
 
   def edit
