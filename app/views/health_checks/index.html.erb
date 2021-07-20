@@ -19,7 +19,7 @@
         <p>消化器症状：<%= health_check.digestive_symptom %></p><br />
         <p>その他：<%= health_check.other %></p><br />
         <p>メモ：<%== health_check.memo.split(/\r\n|\r|\n/).map{|s|h(s)}.join('<br>') %></p><br />
-        <a href="#"><%= link_to '編集', edit_health_check_path(@health_checks.ids) %></a>
+        <a href="#"><%= link_to '編集', edit_health_check_path(health_check.id) %></a>
       </div>
     </div>
   <% end %>

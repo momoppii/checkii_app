@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <p><%= activity_log.log.split(/\r\n|\r|\n/).map{|s|h(s)}.join('<br>') %></p><br />
-        <a href="#"><%= link_to '編集', edit_activity_log_path(@activity_logs.ids) %></a>
+        <a href="#"><%= link_to '編集', edit_activity_log_path(activity_log.id) %></a>
       </div>
     </div>
   <% end %>
