@@ -1,4 +1,5 @@
 class HealthChecksController < ApplicationController
+  before_action :require_user_logged_in, only: [:index, :edit, :update]
   def index
     @health_checks = current_user.health_checks.all.order(id: :desc).page(params[:page]).per(10)
   end

@@ -1,4 +1,5 @@
 class ActivityLogsController < ApplicationController
+  before_action :require_user_logged_in, only: [:index, :edit, :update]
   def index
     @activity_logs = current_user.activity_logs.all.order(id: :desc).page(params[:page]).per(20)
   end

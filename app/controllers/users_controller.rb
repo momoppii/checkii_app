@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: [:show, :edit, :update]
   def show
     @user = current_user
   end
@@ -39,6 +40,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confiramation, :birthday, :belong, :underlying_diseases)
+    params.require(:user).permit(:name, :email, :password, :birthday, :belong, :underlying_diseases)
   end
 end
