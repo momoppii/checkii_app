@@ -38,7 +38,7 @@
   max-width: 100%;
   color: #555;
   font-size: 16px;
-  background: #ffffcc;
+  background: #ffff00;
   border-radius: 15px;
 }
 
@@ -48,7 +48,7 @@
   display: block;
   z-index: 1;
   border-style: solid;
-  border-color: #ffffcc transparent;
+  border-color: #ffff00 transparent;
   border-width: 20px 20px 0 0;
   bottom: -20px;
   left: 40%;
