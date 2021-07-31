@@ -34,18 +34,6 @@ class HealthChecksController < ApplicationController
   
   def update
     @health_check = HealthCheck.find(params[:id])
-      if @health_check.respiratory_symptom.nil?
-        @health_check.respiratory_symptom.clear
-      end
-      if @health_check.throat_nasus_eyes_symptom.nil?
-        @health_check.throat_nasus_eyes_symptom.clear
-      end
-      if @health_check.digestive_symptom.nil?
-        @health_check.digestive_symptom.clear
-      end
-      if @health_check.other.nil?
-        @health_check.other.clear
-      end
     if @health_check.update(health_check_params)
       flash[:success] = '更新されました'
       redirect_to health_checks_url
