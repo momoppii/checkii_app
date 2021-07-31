@@ -26,10 +26,10 @@ class HealthChecksController < ApplicationController
 
   def edit
     @health_check = HealthCheck.find(params[:id])
-    @respiratory_symptoms = ["せき", "息切れ", "胸部の痛みや圧迫感"]
-    @throat_nasus_eyes_symptoms = ["のどの痛み", "鼻づまり", "結膜炎", "味やにおいを感じにくい"]
-    @digestive_symptoms = ["吐き気や嘔吐", "腹痛", "下痢"]
-    @others = ["倦怠感", "筋肉や関節の痛み", "頭痛", "発疹", "めまい", "悪寒", "食欲不振", "睡眠障害", "精神症状"]
+    @respiratory_symptoms = ["特になし","せき", "息切れ", "胸部の痛みや圧迫感"]
+    @throat_nasus_eyes_symptoms = ["特になし","のどの痛み", "鼻づまり", "結膜炎", "味やにおいを感じにくい"]
+    @digestive_symptoms = ["特になし","吐き気や嘔吐", "腹痛", "下痢"]
+    @others = ["特になし","倦怠感", "筋肉や関節の痛み", "頭痛", "発疹", "めまい", "悪寒", "食欲不振", "睡眠障害", "精神症状"]
   end
   
   def update
