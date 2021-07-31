@@ -1,4 +1,3 @@
-
 <h1><%= @health_check.created_at.to_s(:datetime_jp) %>の編集</h1>
 
  <%= form_with(model: @health_check, local:true) do |f| %>
@@ -17,8 +16,10 @@
           <% @respiratory_symptoms.each do |respiratory_symptom| %>
           <% if @health_check.respiratory_symptom.nil? %>
             <%= f.check_box :respiratory_symptom, { checked: false, multiple: true, include_hidden: false }, respiratory_symptom %>
-          <% elsif @health_check.respiratory_symptom.include?(respiratory_symptom) %>
+          <% elsif  @health_check.respiratory_symptom.include?(respiratory_symptom) %>
             <%= f.check_box :respiratory_symptom, { checked: true, multiple: true, include_hidden: false }, respiratory_symptom %>
+          <% else %>
+            <%= f.check_box :respiratory_symptom, { checked: false, multiple: true, include_hidden: false }, respiratory_symptom %>
           <% end %>
             <%= respiratory_symptom %>
           <% end %>
@@ -31,6 +32,8 @@
             <%= f.check_box :throat_nasus_eyes_symptom, { checked: false, multiple: true, include_hidden: false }, throat_nasus_eyes_symptom %>
           <% elsif @health_check.throat_nasus_eyes_symptom.include?(throat_nasus_eyes_symptom) %>
             <%= f.check_box :throat_nasus_eyes_symptom, { checked: true, multiple: true, include_hidden: false }, throat_nasus_eyes_symptom %>
+          <% else %>
+            <%= f.check_box :throat_nasus_eyes_symptom, { checked: false, multiple: true, include_hidden: false }, throat_nasus_eyes_symptom %>
           <% end %>
             <%= throat_nasus_eyes_symptom %>
           <% end %>
@@ -43,6 +46,8 @@
             <%= f.check_box :digestive_symptom, { checked: false, multiple: true, include_hidden: false }, digestive_symptom %>
           <% elsif @health_check.digestive_symptom.include?(digestive_symptom) %>
             <%= f.check_box :digestive_symptom, { checked: true, multiple: true, include_hidden: false }, digestive_symptom %>  
+          <% else %>
+            <%= f.check_box :digestive_symptom, { checked: false, multiple: true, include_hidden: false }, digestive_symptom %>
           <% end %>
             <%= digestive_symptom %>
           <% end %>
@@ -55,6 +60,8 @@
             <%= f.check_box :other, { checked: false, multiple: true, include_hidden: false }, other %>
           <% elsif @health_check.other.include?(other) %>
             <%= f.check_box :other, { checked: true, multiple: true, include_hidden: false }, other %>
+          <% else %>
+            <%= f.check_box :other, { checked: false, multiple: true, include_hidden: false }, other %>
           <% end %>  
             <%= other %>
           <% end %>
