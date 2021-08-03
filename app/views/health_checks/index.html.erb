@@ -14,10 +14,54 @@
       <div class="card-body">
         <link rel="stylesheet" href="health_check.css">
         <p>体温：<%= health_check.templature %></p><br />
-        <p>呼吸器症状：<%= health_check.respiratory_symptom %></p><br />
-        <p>喉、鼻、目の症状：<%= health_check.throat_nasus_eyes_symptom %></p><br />
-        <p>消化器症状：<%= health_check.digestive_symptom %></p><br />
-        <p>その他：<%= health_check.other %></p><br />
+        <p>呼吸器症状：
+          <% if health_check.respiratory_symptom.nil? %>
+            特になし
+          <% else %>
+            <% @respiratory_symptoms.each do |symptom| %>
+              <% if health_check.respiratory_symptom.include?(symptom) %>
+                <%= symptom %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </p>
+        <br />
+        <p>喉、鼻、目の症状：
+          <% if health_check.throat_nasus_eyes_symptom.nil? %>
+            特になし
+          <% else %>
+            <% @throat_nasus_eyes_symptoms.each do |symptom| %>
+              <% if health_check.throat_nasus_eyes_symptom.include?(symptom) %>
+                <%= symptom %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </p>
+        <br />
+        <p>消化器症状：
+          <% if health_check.digestive_symptom.nil? %>
+            特になし
+          <% else %>
+            <% @digestive_symptoms.each do |symptom| %>
+              <% if health_check.digestive_symptom.include?(symptom) %>
+                <%= symptom %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </p>
+        <br />
+        <p>その他：
+          <% if health_check.other.nil? %>
+            特になし
+          <% else %>
+            <% @others.each do |symptom| %>
+              <% if health_check.other.include?(symptom) %>
+                <%= symptom %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </p>
+        <br />
         <p>メモ：<%= simple_format(h(health_check.memo)) %></p><br />
         <a href="#"><%= link_to '編集', edit_health_check_path(health_check.id) %></a>
       </div>
