@@ -11,6 +11,7 @@
     <h6>以下、当てはまる症状があればチェックをいれてください。</h6>
     <br />
       <div class="form-group">
+        <%= hidden_field_tag :respiratory_symptom, @health_check.respiratory_symptom %>
         <%= '【 呼吸器症状 】' %>
         <% @respiratory_symptoms.each do |respiratory_symptom| %>
         <% if @health_check.respiratory_symptom.nil? %>
@@ -20,11 +21,12 @@
         <% else %>
           <%= f.check_box :respiratory_symptom, { checked: false, multiple: true, include_hidden: false }, respiratory_symptom %>
         <% end %>
-          <%= f.label :respiratory_symptom, respiratory_symptom %>
+          <%= f.label :respiratory_symptom, respiratory_symptom, value: respiratory_symptom %>
         <% end %>
       </div>
       
       <div class="form-group">
+        <%= hidden_field_tag :throat_nasus_eyes_symptom, @health_check.throat_nasus_eyes_symptom %>
         <%= '【のど、鼻、目の症状】' %>
         <% @throat_nasus_eyes_symptoms.each do |throat_nasus_eyes_symptom| %>
         <% if @health_check.throat_nasus_eyes_symptom.nil? %>
@@ -34,11 +36,12 @@
         <% else %>
           <%= f.check_box :throat_nasus_eyes_symptom, { checked: false, multiple: true, include_hidden: false }, throat_nasus_eyes_symptom %>
         <% end %>
-          <%= f.label :throat_nasus_eyes_symptom, throat_nasus_eyes_symptom %>
+          <%= f.label :throat_nasus_eyes_symptom, throat_nasus_eyes_symptom, value: throat_nasus_eyes_symptom %>
         <% end %>
       </div>
       
       <div class="form-group">
+        <%= hidden_field_tag :other, @health_check.other %>
         <%= '【 消化器症状 】' %>
         <% @digestive_symptoms.each do |digestive_symptom| %>
         <% if @health_check.digestive_symptom.nil? %>
@@ -48,7 +51,7 @@
         <% else %>
           <%= f.check_box :digestive_symptom, { checked: false, multiple: true, include_hidden: false }, digestive_symptom %>
         <% end %>
-          <%= f.label :digestive_symptom, digestive_symptom %>
+          <%= f.label :digestive_symptom, digestive_symptom, value: digestive_symptom %>
         <% end %>
       </div>
       
@@ -62,12 +65,12 @@
         <% else %>
           <%= f.check_box :other, { checked: false, multiple: true, include_hidden: false }, other %>
         <% end %>  
-          <%= f.label :other, other %>
+          <%= f.label :other, other, value: other %>
         <% end %>
       </div>
       <br />
       <div class="form-group">
-        <%= f.label :memo, '上記以外に気になる症状があったら記入してください。' %>
+        <%= f.label :memo, '上記以外に気になる症状があったら記入してください。'%>
         <%= f.text_area :memo, value: @health_check.memo,class: 'form-control' %>
       </div>
           

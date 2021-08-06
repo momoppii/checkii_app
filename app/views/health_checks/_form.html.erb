@@ -13,7 +13,7 @@
           <%= '【 呼吸器症状 】' %>
           <% @respiratory_symptoms.each do |respiratory_symptom| %>
               <%= f.check_box :respiratory_symptom, { multiple: true, include_hidden: false }, respiratory_symptom %>
-              <%= f.label :respiratory_symptom, respiratory_symptom %>
+              <%= f.label :respiratory_symptom, respiratory_symptom, value: respiratory_symptom %>
           <% end %>
         </div>
       
@@ -21,7 +21,7 @@
           <%= '【のど、鼻、目の症状】' %>
           <% @throat_nasus_eyes_symptoms.each do |throat_nasus_eyes_symptom| %>
             <%= f.check_box :throat_nasus_eyes_symptom, { multiple: true, include_hidden: false }, throat_nasus_eyes_symptom %>
-            <%= f.label :throat_nasus_eyes_symptom, throat_nasus_eyes_symptom %>
+            <%= f.label :throat_nasus_eyes_symptom, throat_nasus_eyes_symptom, value: throat_nasus_eyes_symptom %>
           <% end %>
         </div>
       
@@ -29,7 +29,7 @@
           <%= '【 消化器症状 】' %>
           <% @digestive_symptoms.each do |digestive_symptom| %>
             <%= f.check_box :digestive_symptom, { multiple: true, include_hidden: false }, digestive_symptom %>
-            <%= f.label :digestive_symptom, digestive_symptom %>
+            <%= f.label :digestive_symptom, digestive_symptom, value: digestive_symptom %>
           <% end %>
         </div>
       
@@ -37,7 +37,7 @@
           <%= '【 その他 】' %>
           <% @others.each do |other| %>
             <%= f.check_box :other, { multiple: true, include_hidden: false }, other %>
-          <%= f.label :other, other %>
+          <%= f.label :other, other, value: other %>
           <% end %>
         </div>
         <br />
