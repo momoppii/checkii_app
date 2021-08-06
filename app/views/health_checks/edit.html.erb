@@ -1,7 +1,7 @@
 <h1><%= @health_check.created_at.to_s(:datetime_jp) %>の編集</h1>
 
  <%= form_with(model: @health_check, local:true) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
+  <%= render 'layouts/error_messages', model: f.object %>
     <br />    
     <div class="form-group">
       <%= f.label :templature, '【 体温 】' %>
