@@ -1,15 +1,13 @@
-<ul>
-  <% @activity_logs.each do |activity_log| %>
-    <div class="card">
-      <div class="card-header">
-        <%= activity_log.created_at.to_s(:datetime_jp) %>
-      </div>
-      <div class="card-body">
-        <p><%= simple_format(activity_log.log) %></p><br />
-        <a href="#"><%= link_to '編集', edit_activity_log_path(activity_log.id) %></a>
-      </div>
+<% @activity_logs.each do |activity_log| %>
+  <div class="card">
+    <div class="card-header">
+      <%= activity_log.created_at.to_s(:datetime_jp) %>
     </div>
-  <% end %>
-  <%= paginate @activity_logs %>
-</ul>
+    <div class="card-body">
+      <%= simple_format(activity_log.log) %><br />
+      <%= link_to '編集', edit_activity_log_path(activity_log.id) %>
+    </div>
+  </div>
+<% end %>
+<%= paginate @activity_logs %>
         

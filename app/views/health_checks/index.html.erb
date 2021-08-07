@@ -1,71 +1,66 @@
-<ul>
-  <% @health_checks.each do |health_check| %>
-    <div class="card">
-    <% if health_check.templature < 37.0 %>
-      <div class="green">
-    <% elsif health_check.templature >= 37.0 && health_check.templature < 37.5 %>
-      <div class="yellow">
-    <% elsif health_check.templature >= 37.5 %>
-      <div class="red">
-    <% end %>
-      <div class="card-header">
-        <%= health_check.created_at.to_s(:datetime_jp) %>
-      </div>
-      <div class="card-body">
-        <link rel="stylesheet" href="health_check.css">
-        <p>体温：<%= health_check.templature %></p><br />
-        <p>呼吸器症状：
-          <% if health_check.respiratory_symptom.nil? %>
-            特になし
-          <% else %>
-            <% @respiratory_symptoms.each do |symptom| %>
-              <% if health_check.respiratory_symptom.include?(symptom) %>
-                <%= '・' + symptom %>
-              <% end %>
-            <% end %>
-          <% end %>
-        </p>
-        <br />
-        <p>喉、鼻、目の症状：
-          <% if health_check.throat_nasus_eyes_symptom.nil? %>
-            特になし
-          <% else %>
-            <% @throat_nasus_eyes_symptoms.each do |symptom| %>
-              <% if health_check.throat_nasus_eyes_symptom.include?(symptom) %>
-                <%= '・' + symptom %>
-              <% end %>
-            <% end %>
-          <% end %>
-        </p>
-        <br />
-        <p>消化器症状：
-          <% if health_check.digestive_symptom.nil? %>
-            特になし
-          <% else %>
-            <% @digestive_symptoms.each do |symptom| %>
-              <% if health_check.digestive_symptom.include?(symptom) %>
-                <%= '・' + symptom %>
-              <% end %>
-            <% end %>
-          <% end %>
-        </p>
-        <br />
-        <p>その他：
-          <% if health_check.other.nil? %>
-            特になし
-          <% else %>
-            <% @others.each do |symptom| %>
-              <% if health_check.other.include?(symptom) %>
-                <%= '・' + symptom %>
-              <% end %>
-            <% end %>
-          <% end %>
-        </p>
-        <br />
-        <p>メモ：<%= simple_format(h(health_check.memo)) %></p><br />
-        <a href="#"><%= link_to '編集', edit_health_check_path(health_check.id) %></a>
-      </div>
-    </div>
+<% @health_checks.each do |health_check| %>
+  <div class="card">
+  <% if health_check.templature < 37.0 %>
+    <div class="green">
+  <% elsif health_check.templature >= 37.0 && health_check.templature < 37.5 %>
+    <div class="yellow">
+  <% elsif health_check.templature >= 37.5 %>
+    <div class="red">
   <% end %>
-  <%= paginate @health_checks %>
-</ul>
+    <div class="card-header">
+      <%= health_check.created_at.to_s(:datetime_jp) %>
+    </div>
+    <div class="card-body">
+      <link rel="stylesheet" href="health_check.css">
+      体温：<%= health_check.templature %><br />
+      呼吸器症状：
+        <% if health_check.respiratory_symptom.nil? %>
+          特になし
+        <% else %>
+          <% @respiratory_symptoms.each do |symptom| %>
+            <% if health_check.respiratory_symptom.include?(symptom) %>
+              <%= '・' + symptom %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <br />
+      喉、鼻、目の症状：
+        <% if health_check.throat_nasus_eyes_symptom.nil? %>
+          特になし
+        <% else %>
+          <% @throat_nasus_eyes_symptoms.each do |symptom| %>
+            <% if health_check.throat_nasus_eyes_symptom.include?(symptom) %>
+              <%= '・' + symptom %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <br />
+      消化器症状：
+        <% if health_check.digestive_symptom.nil? %>
+          特になし
+        <% else %>
+          <% @digestive_symptoms.each do |symptom| %>
+            <% if health_check.digestive_symptom.include?(symptom) %>
+              <%= '・' + symptom %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <br />
+      その他：
+        <% if health_check.other.nil? %>
+          特になし
+        <% else %>
+          <% @others.each do |symptom| %>
+            <% if health_check.other.include?(symptom) %>
+              <%= '・' + symptom %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <br />
+      メモ：<%= simple_format(h(health_check.memo)) %><br />
+        <%= link_to '編集', edit_health_check_path(health_check.id) %>
+    </div>
+  </div>
+  </div>
+<% end %>
+<%= paginate @health_checks %>
