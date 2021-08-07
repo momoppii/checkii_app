@@ -20,7 +20,7 @@
           <% else %>
             <% @respiratory_symptoms.each do |symptom| %>
               <% if health_check.respiratory_symptom.include?(symptom) %>
-                <%= symptom %>
+                <%= '・' + symptom %>
               <% end %>
             <% end %>
           <% end %>
@@ -32,7 +32,7 @@
           <% else %>
             <% @throat_nasus_eyes_symptoms.each do |symptom| %>
               <% if health_check.throat_nasus_eyes_symptom.include?(symptom) %>
-                <%= symptom %>
+                <%= '・' + symptom %>
               <% end %>
             <% end %>
           <% end %>
@@ -44,7 +44,7 @@
           <% else %>
             <% @digestive_symptoms.each do |symptom| %>
               <% if health_check.digestive_symptom.include?(symptom) %>
-                <%= symptom %>
+                <%= '・' + symptom %>
               <% end %>
             <% end %>
           <% end %>
@@ -56,7 +56,7 @@
           <% else %>
             <% @others.each do |symptom| %>
               <% if health_check.other.include?(symptom) %>
-                <%= symptom %>
+                <%= '・' + symptom %>
               <% end %>
             <% end %>
           <% end %>
