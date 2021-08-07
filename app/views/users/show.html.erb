@@ -1,15 +1,15 @@
 <h1>ユーザー情報</h1>
 <br />
-<h5>[お名前]<br /><br /><%= @user.name %></h5>
+[お名前]<br /><%= @user.name %>
 <br />
 <br />
-<h5>[メールアドレス]<br /><br /><%= @user.email %></h5>
+[メールアドレス]<br /><%= @user.email %>
 <br />
 <br />
-<h5>[所属団体]<br /><br /><%= @user.belong %></h5>
+[所属団体]<br /><%= @user.belong %>
 <br />
 <br />
-<h5>[基礎疾患などの健康状態]<br /><br /><%= simple_format(@user.underlying_diseases) %></h5>
+[基礎疾患などの健康状態]<%= simple_format(@user.underlying_diseases) %>
 <br />
 <br />
 <div class="text-center">
