@@ -9,9 +9,15 @@
 [所属団体]<br /><%= @user.belong %>
 <br />
 <br />
-[基礎疾患などの健康状態]<%= simple_format(@user.underlying_diseases) %>
+[基礎疾患などの健康状態]<br />
+<% if @user.underlying_diseases = "" %>
+    <%= '特になし' %>
+<% else %>
+    <%= simple_format(@user.underlying_diseases) %>
+<% end %>
 <br />
 <br />
+[ワクチン接種状況]<br /><%= @user.vaccine %>
 <div class="text-center">
     変更は<%= link_to'こちら', edit_user_path(id: @user) %>から
 </div>

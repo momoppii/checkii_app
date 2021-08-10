@@ -1,7 +1,8 @@
 class ActivityLogsController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :edit, :update]
   def index
-    @activity_logs = current_user.activity_logs.all.order(id: :desc).page(params[:page]).per(20)
+    @q = current_user.activity_logs.ransack(params[:q])
+    @activity_logs = @q.result.order(id: :desc).page(params[:page]).per(10)
   end
   
   def new

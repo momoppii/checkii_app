@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_171648) do
     t.date "birthday"
     t.string "belong"
     t.text "underlying_diseases"
+    t.text "vaccine"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

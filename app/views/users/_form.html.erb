@@ -39,6 +39,12 @@
         <%= f.text_area :underlying_diseases, placeholder:'基礎疾患や、現在治療中の病気、アレルギー、服用している薬などがあったら入力してください。', class: 'form-control' %>
       </div>
       <br />
+      <div class="form-group">
+        <%= 'ワクチン接種状況' %><br />
+        <label><%= f.radio_button :vaccine, "未接種" %>未接種</label>
+        <label><%= f.radio_button :vaccine, "一回済" %>一回済</label>
+        <label><%= f.radio_button :vaccine, "二回済" %>二回済</label>
+      <br />
       <%= f.submit '登録', class: 'btn btn-success btn-block' %>
     <% end %>
   </div>

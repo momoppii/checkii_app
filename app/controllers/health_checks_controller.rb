@@ -2,6 +2,7 @@ class HealthChecksController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :edit, :update]
   def index
     @health_checks = current_user.health_checks.all.order(id: :desc).page(params[:page]).per(10)
+    @ten_health_checks = @health_checks.last(10)
     @respiratory_symptoms = ["せき", "息切れ", "胸部の痛みや圧迫感"]
     @throat_nasus_eyes_symptoms = ["のどの痛み", "鼻づまり", "結膜炎", "味やにおいを感じにくい"]
     @digestive_symptoms = ["吐き気や嘔吐", "腹痛", "下痢"]

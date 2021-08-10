@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.date :birthday
       t.string :belong
       t.text :underlying_diseases
+      t.text :vaccine
 
       t.timestamps
     end
