@@ -1,4 +1,4 @@
-<%= '体温の変動' %>
+<p>体温の変動</p>
 <%= line_chart @ten_health_checks.pluck(:created_at, :templature), min: 35, max: 40, curve: false %>
 <br />
 <% @health_checks.each do |health_check| %>
@@ -62,7 +62,7 @@
       <br />
       メモ：<%= simple_format(h(health_check.memo)) %><br />
         <%= link_to '編集', edit_health_check_path(health_check.id) %>
-    </div>
+  </div>
   </div>
   </div>
 <% end %>
