@@ -1,26 +1,26 @@
-<div class="col-12">
-  <div class="box">
-    <%= search_form_for @q do |f| %>
-      <div class='form-group row'>
-        <label class="col-4 col-form-label">キーワード検索</label>
-        <div class="col-6">
-          <%= f.search_field :log_cont, class: "form-control" %>
+<div class='text-center'>
+  <div class="col-12">
+    <div class="box">
+      <%= search_form_for @q do |f| %>
+        <div class='form-group row'>
+          <label class="col-3 col-form-label">キーワード検索</label>
+          <div class="col-6">
+            <%= f.search_field :log_cont, class: "form-control" %>
+          </div>
         </div>
-      </div>
-      <div class='form-group row'>
-        <label class="col-3 col-form-label">日付検索</label>
-        <div class="col-4">
-          <%= f.date_field :created_at_gteq, class: "form-control" %>
+        <div class='form-group row'>
+          <label class="col-3 col-form-label">日付検索</label>
+          <div class="col-3">
+            <%= f.date_field :created_at_gteq, class: "form-control" %>
+          </div>
+          ～
+          <div class="col-3">
+            <%= f.date_field :created_at_lteq, class: "form-control" %>
+          </div>
         </div>
-        ～
-        <div class="col-4">
-          <%= f.date_field :created_at_lteq, class: "form-control" %>
-        </div>
-      </div>
-      <div class="text-center">
         <%= f.submit "検索" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 <% if @activity_logs.present? %>
@@ -35,6 +35,8 @@
       </div>
     </div>
   <% end %>
+<% elsif @q.created_at_gteq > @q.created_at_lteq %>
+  <p>日付を正しく入力してください。</p>
 <% else %>
   <p>行動記録がありませんでした。</p>
 <% end %>
