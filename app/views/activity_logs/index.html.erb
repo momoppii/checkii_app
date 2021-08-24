@@ -35,9 +35,13 @@
       </div>
     </div>
   <% end %>
-<% elsif @q.created_at_gteq > @q.created_at_lteq %>
-  <p>日付を正しく入力してください。</p>
+<% elsif @q.created_at_gteq.present? && @q.created_at_lteq.present? && @q.created_at_gteq > @q.created_at_lteq %>
+  <div class='text-center'>
+    <p>日付を正しく入力してください。</p>
+  </div>
 <% else %>
-  <p>行動記録がありませんでした。</p>
+  <div class='text-center'>
+    <p>行動記録がありませんでした。</p>
+  </div>
 <% end %>
 <%= paginate @activity_logs %>

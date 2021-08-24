@@ -16,13 +16,18 @@
 <br />
 <br />
 <div class="text-center">  
-  <%= link_to '< ヘルスチェック 登録 >', new_health_check_url %><br />
+  <%= link_to '< ヘルスチェック 登録 >', new_health_check_url %>
   <%= link_to '< ヘルスチェック　一覧・編集 >', health_checks_url %><br />
-  <%= link_to '< 行動記録 登録 >', new_activity_log_url %><br />
+  <%= link_to '< 行動記録 登録 >', new_activity_log_url %>
   <%= link_to '< 行動記録　一覧・編集 >', activity_logs_url %><br />
-  <%= link_to '< ユーザー情報 確認・編集 >', user_path(current_user) %><br />
+  <%= link_to '< ユーザー情報 確認・編集 >', user_path(current_user) %>
   <%= link_to '<  ログアウト >', logout_path, method: :delete %>
+  <br />
+  <br />
 </div>
+<p>47都道府県別累計感染者数</p>
+
+<%= bar_chart @zennkokudata %>
 
 <% else %>
   <br />
