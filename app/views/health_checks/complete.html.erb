@@ -1,4 +1,5 @@
 <% if @templature < 37.0 && @health_check.respiratory_symptom.nil? && @health_check.throat_nasus_eyes_symptom.nil? && @health_check.digestive_symptom.nil? && @health_check.other.nil? %>
+  <br />
   <div class="text-center">
     <div class="fukidashi">
       <link rel="stylesheet" href="fukidashi.css">
@@ -6,11 +7,16 @@
     </div>
   </div>
   <br />
+  <br />
     <%= image_tag "mask.png", :alt => "桃" %>
+  <br />
+  <br />
   <br />
   <div class="text-center">
     <%= link_to '戻る', root_path %>
   </div>
+  <br />
+  <br />
 <% elsif @templature < 37.0 && @health_check.respiratory_symptom.present? || @health_check.throat_nasus_eyes_symptom.present? || @health_check.digestive_symptom.present? || @health_check.other.present? %>
   <div class="text-center">
     <div class="fukidashi-yellow">
@@ -21,9 +27,13 @@
   <br />
     <%= image_tag "relax.png", :alt => "桃" %>
   <br />
+  <br />
+  <br />
   <div class="text-center">
     <%= link_to '戻る', root_path %>
   </div>
+  <br />
+  <br />
 <% elsif 37.0 <= @templature && @templature < 37.5 %>
   <div class="text-center">
     <div class="fukidashi-yellow">
@@ -34,9 +44,12 @@
   <br />
     <%= image_tag "relax.png", :alt => "桃" %>
   <br />
+  <br />
   <div class="text-center">
     <%= link_to '戻る', root_path %>
   </div>
+  <br />
+  <br />
 <% elsif 37.5 <= @templature %>
   <div class="text-center">
     <div class="fukidashi-red">
@@ -45,9 +58,13 @@
     </div>
   </div>
   <br />
+  <br />
     <%= image_tag "phone.png", :alt => "桃" %>
+  <br />
   <br />
   <div class="text-center">
     <%= link_to '戻る', root_path %>
   </div>
+  <br />
+  <br />
 <% end %>
