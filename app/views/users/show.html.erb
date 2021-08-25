@@ -1,5 +1,6 @@
 <h1>ユーザー情報</h1>
 <br />
+<br />
 [お名前]<br /><%= @user.name %>
 <br />
 <br />
@@ -18,6 +19,11 @@
 <br />
 <br />
 [ワクチン接種状況]<br /><%= @user.vaccine %>
+<br />
+<br />
+<br />
 <div class="text-center">
     変更は<%= link_to'こちら', edit_user_path(id: @user) %>から
 </div>
+<br />
+<br />

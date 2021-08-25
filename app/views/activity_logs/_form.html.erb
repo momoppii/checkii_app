@@ -3,20 +3,21 @@
     ・○○さんと□□さんと××でランチをした。<br />
     ・△△まで買い物に行った。<br />
     ・塾が密集していた。<br />
-    ・会社にコロナに感染している人がいることが分かった。等々
+    ・会社にコロナに感染している人がいることが分かった。<br />
+    ・一回目のワクチンを接種した。等々
 </h5>
-
+<br />
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
-    
-    <%= form_with(model: activity_log, local:true) do |f| %>
+    <%= form_with(model: @activity_log, local:true) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
-    
       <div class="form-group">
         <%= f.text_area :log, class: 'form-control' %>
       </div>
-      
+      <br />
       <%= f.submit '保存', class: 'btn btn-success btn-block' %>
     <% end %>
+    <br />
+    <br />
   </div>
 </div>

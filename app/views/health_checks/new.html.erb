@@ -1,3 +1,49 @@
 <h1>ヘルスチェック</h1>
-
-<%= render 'form', health_check: @health_check %>
+<%= form_with(model: @health_check, local:true) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<br />    
+<div class="form-group">
+  <%= f.label :templature, '【 体温 】' %>
+  <%= f.number_field :templature, step: "0.1", value: 36.5, class: 'form-control' %>
+</div>
+<br />
+<h6>以下、当てはまる症状があればチェックをいれてください。</h6>
+<br />
+  <div class="form-group">
+    <%= '【 呼吸器症状 】' %>
+    <% @respiratory_symptoms.each do |respiratory_symptom| %>
+      <%= f.check_box :respiratory_symptom, { multiple: true, include_hidden: false }, respiratory_symptom %>
+      <%= f.label :respiratory_symptom, respiratory_symptom, value: respiratory_symptom %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= '【のど、鼻、目の症状】' %>
+    <% @throat_nasus_eyes_symptoms.each do |throat_nasus_eyes_symptom| %>
+      <%= f.check_box :throat_nasus_eyes_symptom, { multiple: true, include_hidden: false }, throat_nasus_eyes_symptom %>
+      <%= f.label :throat_nasus_eyes_symptom, throat_nasus_eyes_symptom, value: throat_nasus_eyes_symptom %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= '【 消化器症状 】' %>
+    <% @digestive_symptoms.each do |digestive_symptom| %>
+      <%= f.check_box :digestive_symptom, { multiple: true, include_hidden: false }, digestive_symptom %>
+      <%= f.label :digestive_symptom, digestive_symptom, value: digestive_symptom %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= '【 その他 】' %>
+    <% @others.each do |other| %>
+      <%= f.check_box :other, { multiple: true, include_hidden: false }, other %>
+      <%= f.label :other, other, value: other %>
+    <% end %>
+  </div>
+  <br />
+  <div class="form-group">
+    <%= f.label :memo, '上記以外に気になる症状があったら記入してください。' %>
+    <%= f.text_area :memo, class: 'form-control' %>
+  </div>
+  <br />
+  <%= f.submit '完了', class: 'btn btn-success btn-block' %>
+  <br />
+  <br />
+<% end %>
