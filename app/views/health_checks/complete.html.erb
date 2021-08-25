@@ -33,7 +33,6 @@
     <%= link_to '戻る', root_path %>
   </div>
   <br />
-  <br />
 <% elsif 37.0 <= @templature && @templature < 37.5 %>
   <div class="text-center">
     <div class="fukidashi-yellow">
@@ -63,8 +62,10 @@
   <br />
   <br />
   <div class="text-center">
+    <%= link_to '指定の機関の連絡先を探す', 'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/covid19-kikokusyasessyokusya.html' %>
+    <br />
+    <br />
     <%= link_to '戻る', root_path %>
   </div>
-  <br />
   <br />
 <% end %>
